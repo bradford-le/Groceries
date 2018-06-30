@@ -4,6 +4,7 @@ import {UserService} from "./shared/user/user.service";
 
 @Component({
   selector: "my-app",
+  providers: [UserService],
   templateUrl: 'pages/login/login.html',
   styleUrls: ['pages/login/login-common.css','pages/login/login.css']
 })
@@ -11,9 +12,8 @@ export class AppComponent {
   user: User;
   isLoggingIn = true;
 
-  constructor() {
+  constructor(private userService: UserService) {
     this.user = new User();
-
   }
   submit() {
     alert('You\'re using: ' + this.user.email);
