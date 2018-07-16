@@ -16,7 +16,17 @@ export class AppComponent {
     this.user = new User();
   }
   submit() {
-    alert('You\'re using: ' + this.user.email);
+    if (this.isLoggingIn) {
+      this.login();
+    } else{
+      this.signUp();
+    }
+  }
+  login(){
+
+  }
+  signUp() {
+    this.userService.register(this.user);
   }
   toggleDisplay() {
     this.isLoggingIn = !this.isLoggingIn;
